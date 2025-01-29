@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.uv]
+name = "jira-opensync-wrapper"
+version = "0.1.0"
+description = "Python class to add specific functionality to the JIRA python package"
+author = "Dan"
+author-email = "dan@example.com"
+license = "MIT"
+dependencies = [
+    "jira",
+    "pytest",
+]
