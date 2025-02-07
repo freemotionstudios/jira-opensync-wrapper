@@ -2,11 +2,9 @@ import pytest
 from jira_opensync_wrapper.jira_opensync_wrapper import JiraOpenSyncWrapper
 
 class MockJIRA:
-    def __init__(self, server, basic_auth, username, password):
+    def __init__(self, server, basic_auth):
         self.server = server
         self.basic_auth = basic_auth
-        self.username = username
-        self.password = password
         self.issues = []
 
     def search_issues(self, jql):
@@ -33,7 +31,7 @@ class MockStatus:
 
 @pytest.fixture
 def jira_wrapper():
-    mock_jira = MockJIRA(server="http://mockserver", basic_auth=("user", "pass"), username="user", password="pass")
+    mock_jira = MockJIRA(server="http://mockserver", basic_auth=("user", "pass"))
     return JiraOpenSyncWrapper(mock_jira)
 
 def test_open_issue(jira_wrapper):
